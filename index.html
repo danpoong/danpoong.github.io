@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Tab to External Browser</title>
+    <title>Custom Tab to External Scheme</title>
     <script>
-        function openExternalBrowser(url) {
-            var a = document.createElement('a');
-            a.href = url;
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-            a.click();
+        function openCustomScheme(url) {
+            window.location.href = url;
         }
     </script>
 </head>
 <body>
     <h1>안드로이드 커스텀탭 예제</h1>
-    <button onclick="openExternalBrowser('https://naver.com')">네이버로 이동</button>
+    <button onclick="openCustomScheme('kraftonsdk://testscheme?url=https://www.naver.com')">앱으로 이동</button>
 </body>
 </html>
