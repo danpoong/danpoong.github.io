@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Tab to External Scheme</title>
-    <script>
-        function openCustomScheme(url) {
-            window.location.href = url;
-        }
-    </script>
+    <title>Custom Tab Test</title>
 </head>
 <body>
-    <h1>안드로이드 커스텀탭 예제</h1>
-    <button onclick="openCustomScheme('kraftonsdk://testscheme?url=https://www.naver.com')">앱으로 이동</button>
+    <h1>Custom Tab Test</h1>
+    <a href="kraftonsdk:testscheme?url=https://www.naver.com">Open with Scheme</a>
 </body>
 </html>
