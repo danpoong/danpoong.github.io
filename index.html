@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>Test Link</title>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var link = document.querySelector('a');
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                window.location.href = "myapp://testsdk?url=" + encodeURIComponent(link.href);
-            });
-        });
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tab to External Browser</title>
+    <script>
+        function openExternalBrowser(url) {
+            var a = document.createElement('a');
+            a.href = url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.click();
+        }
     </script>
 </head>
 <body>
-<a href="https://www.naver.com">testlink</a>
+    <h1>안드로이드 커스텀탭 예제</h1>
+    <button onclick="openExternalBrowser('https://naver.com')">네이버로 이동</button>
 </body>
 </html>
