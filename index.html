@@ -10,5 +10,20 @@
     <p><a href="intent://www.google.com#Intent;scheme=http;action=android.intent.action.VIEW;end">Open ㅁㅁㅁㅁㅁGoogle.com</a></p>
     <p><a href="intent://www.google.com#Intent;scheme=http;package=com.android.chrome;end">Open ㅁㅁ Google.com</a></p>
     <p><a href="kraftonsdk://testscheme?url=https://www.google.com">Open Google.com</a></p>
+    <p><a href="kraftonsdk://unitysdktest?url=https://www.google.com">Open unitysdktest</a></p>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const url = event.target.href;
+                if (window.AndroidInterface) {
+                    window.AndroidInterface.openInExternalBrowser(url);
+                } else {
+                    window.open(url, '_blank');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
