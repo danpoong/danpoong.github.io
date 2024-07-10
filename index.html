@@ -7,17 +7,7 @@
 </head>
 <body>
     <h1>Open Links in External Browser</h1>
-    <p><a href="intent://www.example.com#Intent;scheme=http;package=com.android.chrome;end">Open ㅁ Example.com</a></p>
-    <p><a href="intent://www.google.com#Intent;scheme=http;package=com.android.chrome;end">Open ㅁ Google.com</a></p>
-
-    <script>
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', event => {
-                event.preventDefault();
-                const url = event.target.href;
-                window.open(url, '_blank');
-            });
-        });
-    </script>
+    <p><a href="intent://www.example.com#Intent;scheme=http;end">Open ㅁㅁ Example.com</a></p>
+    <p><a href="intent://www.google.com#Intent;scheme=http;end">Open ㅁㅁ Google.com</a></p>
 </body>
 </html>
