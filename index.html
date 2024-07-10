@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Tab Test</title>
+    <title>External Browser Example</title>
 </head>
 <body>
-    <h1>Custom Tab Test</h1>
-    <a href="kraftonsdk:testscheme?url=https://www.naver.com">Open with Scheme</a>
+    <h1>Open Links in External Browser</h1>
+    <p><a href="https://www.example.com" target="_blank">Open Example.com</a></p>
+    <p><a href="https://www.google.com" target="_blank">Open Google.com</a></p>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const url = event.target.href;
+                window.open(url, '_blank');
+            });
+        });
+    </script>
 </body>
 </html>
