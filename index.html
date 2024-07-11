@@ -3,28 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>External Browser Example</title>
+    <title>Copy to Clipboard Example</title>
+    <style>
+        a {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Open Links in External Browser</h1>
-    <p><a href="com.googleusercontent.apps.475494827175-blqngtftmclu5jrbtvdm92suf94q9jer://mytest">googletest</a></p>
-    <p><a href="fb434836675499853://mytest">fbtest</a></p>
-    <p><a href="https://www.google.com">Open ㅁㅁ Google.com</a></p>
-    <p><a href="intent://www.google.com#Intent;scheme=http;action=android.intent.action.VIEW;end">Open ㅁㅁㅁㅁㅁGoogle.com</a></p>
-    <p><a href="intent://www.google.com#Intent;scheme=http;package=com.android.chrome;end">Open ㅁㅁ Google.com</a></p>
-    <p><a href="kraftonsdk://testscheme?url=https://www.google.com">Open Google.com</a></p>
-    <p><a href="kraftonsdk://unitysdktest?url=https://www.google.com">Open unitysdktest</a></p>
+    <h1>Copy to Clipboard Example</h1>
+    <a href="#" id="copyLink">Copy Text to Clipboard</a>
 
     <script>
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', event => {
-                event.preventDefault();
-                const url = event.target.href;
-                if (window.AndroidInterface) {
-                    window.AndroidInterface.openInExternalBrowser(url);
-                } else {
-                    window.open(url, '_blank');
-                }
+        document.getElementById('copyLink').addEventListener('click', function(event) {
+            event.preventDefault(); // 링크 기본 동작 방지
+
+            // 복사할 텍스트
+            const textToCopy = 'https://www.google.com';
+
+            // 클립보드에 텍스트 복사
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                alert('Text copied to clipboard!');
+            }).catch(function(error) {
+                console.error('Error copying text: ', error);
             });
         });
     </script>
